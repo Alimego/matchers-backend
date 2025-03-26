@@ -18,9 +18,7 @@ export class SubscribeService {
       return { message: 'Subscriber added successfully' };
     } catch (error) {
       if (error.code === 'P2002') {
-        throw new ConflictException(
-          'Subscriber already exists. Thanks for subscribing!',
-        );
+        throw new ConflictException('Subscriber already exists!');
       }
       throw new InternalServerErrorException('Internal server error');
     }
